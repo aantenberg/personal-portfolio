@@ -33,6 +33,7 @@ html {
 
 .header a:hover {
   color: rgb(200, 200, 250);
+  transition: 0.5s;
 }
 
 .job {
@@ -98,9 +99,9 @@ html {
   margin: 1rem auto;
   align-items: center;
   justify-items: center;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  width: 70%;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
 }
 
 .project {
@@ -150,11 +151,11 @@ html {
 
 #intro a {
   color: white;
-  background-color: rgba(200, 100, 200, 50%);
 }
 
 #intro a:hover {
-  background-color: rgba(200, 100, 200, 80%);
+  background-color: rgba(150, 150, 255, 0.696);
+  transition: 0.5s;
 }
 
 #bang {
@@ -188,16 +189,6 @@ body {
   animation-duration: 3s;
   animation-timing-function: ease-out;
   background: black;
-}
-
-@keyframes fadeToBlack {
-  0% {
-    background: linear-gradient(170deg, #4776E6, #8E54E9);
-  }
-
-  100% {
-    background: black;
-  }
 }
 
 #renders {
