@@ -1,6 +1,7 @@
 html {
   height: 100%;
   min-width: 80ch;
+  scroll-padding-top: 100px;
 }
 
 .header {
@@ -38,12 +39,13 @@ html {
 
 .job {
   margin: 1rem auto;
-  width: min(70ch, 80%);
+  width: min(70ch, 70%);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
+
 
 .job img {
   flex: 1;
@@ -53,7 +55,7 @@ html {
 
 .job-description {
   flex: 6;
-  min-width: 50%
+  min-width: 70%
 }
 
 .job-title {
