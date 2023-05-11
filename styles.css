@@ -1,5 +1,6 @@
 html {
   height: 100%;
+  min-width: 80ch;
 }
 
 .header {
@@ -9,7 +10,6 @@ html {
   overflow: hidden;
   border-width: 1px;
   border-color: rgb(200, 200, 250);
-  top: 0;
   border-bottom-style: solid;
   background: linear-gradient(170deg, #4776E6, #5f38ed);
   padding: 14px 16px;
@@ -39,19 +39,30 @@ html {
 .job {
   margin: 1rem auto;
   width: 50%;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  grid-template-columns: 1fr 6fr;
+  justify-content: center;
+}
+
+.job img {
+  flex: 1;
+  width: 200px;
+  max-width: 200px;
+}
+
+.job-description {
+  flex: 6;
+  min-width: 50%
 }
 
 .job-title {
   border-width: 1px;
   border-bottom-style: solid;
-  border-color: rgba(255, 255, 255, 0.7)
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 .job-title h3 {
-  line-height: 20%;
   font-size: large;
 }
 
@@ -115,30 +126,43 @@ html {
 
 
 #intro {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  /* display: grid;
+  grid-template-columns: 1fr 2fr; */
+  margin-inline: auto;
   width: 70%;
-  place-items: center;
+  align-content: center;
+  justify-content: center
 }
 
 
 #intro img {
-  height: 100%;
+  flex: 1;
+  min-width: 300px;
+  min-height:300px;
+  max-width: 300px;
+  max-height: 300px;
   border-radius: 50%;
   overflow: hidden;
   border-width: 4px;
   border-color: white;
   border-style: solid;
   box-shadow: rgb(0 0 0 / 30%) 0px 1px 18px;
+  margin: 20px
 }
 
+#intro div {
+  flex: 2;
+  min-width: 40%;
+  height: 100%;
+  align-self: center;
+}
 
 .card {
   background: rgba(255, 255, 255, 0.3);
   width: 80%;
   margin: 1rem auto;
-  margin-top: 100px;
   border-collapse: separate;
   border-radius: 30px;
   border-width: 4px;
@@ -160,6 +184,7 @@ html {
 
 #bang {
   text-align: center;
+  margin-top: 100px
 }
 
 footer {
