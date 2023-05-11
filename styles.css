@@ -38,7 +38,7 @@ html {
 
 .job {
   margin: 1rem auto;
-  width: 50%;
+  width: min(70ch, 80%);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
