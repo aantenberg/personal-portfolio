@@ -51,7 +51,8 @@ html {
 .job img {
   flex: 1;
   min-width: 100px;
-  max-width: 100px;
+  max-width: 40%;
+  /* max-height: 100px; */
   /* width: 200px; */
   /* height: 200px; */
   /* max-width: 200px; */
