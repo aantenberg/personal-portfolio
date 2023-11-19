@@ -6,13 +6,13 @@ html {
 
 .header {
   z-index: 3;
-  position: sticky;
   top: 0;
   overflow: hidden;
+  position: sticky;
   border-width: 1px;
   border-color: rgb(200, 200, 250);
   border-bottom-style: solid;
-  background: linear-gradient(170deg, #4776E6, #5f38ed);
+  background: black;
   padding: 14px 16px;
 }
 
@@ -39,18 +39,22 @@ html {
 
 .job {
   margin: 1rem auto;
-  width: min(70ch, 70%);
+  width: max(30ch, 60%);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  gap: 50px;
   justify-content: center;
 }
 
 
 .job img {
   flex: 1;
-  width: 200px;
-  max-width: 200px;
+  min-width: 100px;
+  max-width: 100px;
+  /* width: 200px; */
+  /* height: 200px; */
+  /* max-width: 200px; */
 }
 
 .job-description {
@@ -58,22 +62,18 @@ html {
   min-width: 70%
 }
 
-.job-title {
+/* .job-title {
   border-width: 1px;
   border-bottom-style: solid;
   border-color: rgba(255, 255, 255, 0.7);
-}
+} */
 
 .job-title h3 {
   font-size: large;
 }
 
-.subtitle {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: large;
-}
-
 .project-links {
+  margin-left: -10px;
   color: rgba(255, 255, 255, 0.7);
   font-size: large;
   flex-direction: column;
@@ -106,15 +106,19 @@ html {
 }
 
 #penn-mobile,
-#almost,
+#prof-graph,
 #minigolf,
-#ml {
-  margin: 1rem auto;
-  align-items: center;
-  justify-items: center;
-  display: flex;
-  flex-direction: row;
-  width: 80%;
+#ml,
+#almost {
+  /* gap: 90px;
+  flex-direction: row; */
+  display: grid;
+}
+
+@media (max-width: 650px) {
+  .project-content {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 .project {
@@ -130,8 +134,6 @@ html {
 #intro {
   display: flex;
   flex-wrap: wrap;
-  /* display: grid;
-  grid-template-columns: 1fr 2fr; */
   margin-inline: auto;
   width: 70%;
   align-content: center;
@@ -142,7 +144,7 @@ html {
 #intro img {
   flex: 1;
   min-width: 300px;
-  min-height:300px;
+  min-height: 300px;
   max-width: 300px;
   max-height: 300px;
   border-radius: 50%;
@@ -162,15 +164,10 @@ html {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.3);
   width: 80%;
   margin: 1rem auto;
   border-collapse: separate;
   border-radius: 30px;
-  border-width: 4px;
-  border-style: solid;
-  border-color: white;
-  padding: 20px;
   color: white;
   box-shadow: rgb(0 0 0 / 30%) 0px 1px 18px;
 }
@@ -202,11 +199,10 @@ footer {
 body {
   margin: 0;
   color: white;
-  font-family: "Work Sans", sans-serif;
-  background: linear-gradient(170deg, #4776E6, #8E54E9);
+  font-family: "Inter";
+  background: black;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: #4776E6;
   justify-content: center;
   align-items: center;
 }
@@ -221,6 +217,8 @@ body {
 #renders {
   margin: auto;
 }
+
+
 
 .render {
   display: block;
@@ -296,15 +294,64 @@ body {
 }
 
 h1 {
-  font-size: 196px;
+  font-size: 48px;
   line-height: 20%;
 
 }
 
 h2 {
-  font-size: 72px;
+  font-size: 26pt;
+  font-weight: 600;
+  margin: 0;
 }
 
 h3 {
   font-size: 3rem;
+}
+
+.project-title {
+  margin: 0;
+  font-size: 26pt;
+  font-weight: 600;
+}
+
+.subtitle-row {
+  display: inline-block;
+}
+
+.subtitle {
+  display: inline-block;
+  margin: 0;
+  font-size: 17pt;
+  font-weight: 200;
+  color: #ABABAB;
+}
+
+.project-content {
+  align-items: center;
+  justify-items: center;
+  width: 60%;
+  margin: 0 auto 10rem;
+  grid-template-columns: 2fr 4fr;
+}
+
+.project-text {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+}
+
+.inline-icon {
+  background-size: cover;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
+
+.calendar {
+  background-image: url('./assets/icons/calendar.svg');
+}
+
+.brackets {
+  background-image: url('./assets/icons/brackets.svg');
 }

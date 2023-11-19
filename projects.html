@@ -10,7 +10,7 @@
   <link rel="icon" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/bd90cd7bef.js" crossorigin="anonymous"></script>
 </head>
 
@@ -24,84 +24,112 @@
     <a href="projects.html">Projects</a>
   </div>
   <h2 id="section-title">Projects</h2>
-  <div id="penn-mobile">
-    <img src="assets/pennmobile.png" alt="Penn Mobile Dining Page" width="400">
-    <div class="card">
-      <h2>Penn Mobile</h2>
-      <h3 class="subtitle">October 2021 - Present</h3>
+  <div id="penn-mobile" class="project-content">
+    <img src="assets/pennmobile.png" alt="Penn Mobile Dining Page" width="100%">
+    <div class="project-text">
+      <p class="project-title">Penn Mobile</p>
+      <div class="subtitle-row"><i class="inline-icon calendar"></i>
+        <p class="subtitle">October 2021 - Present</p>
+      </div>
+      <div class="subtitle-row"><i class="inline-icon brackets"></i>
+        <p class="subtitle">Swift, SwiftUI, UIKit</p>
+      </div>
       <p>iOS App designed to improve the student experience for the Penn community. Built with features such as dining
-        hall menus, group study room bookings, and laundry machine availability using both custom API endpoints built by
+        hall menus, group study room bookings, and laundry machine availability using both custom API endpoints built
+        by
         Penn Labs developers and API endpoints provided by Penn Administration. Used by over 7,000 students each
         month.</p>
       <div class="project-links">
-        <h3 class="subtitle">Swift, SwiftUI, UIKit</h3>
         <a id="icon" href="https://github.com/pennlabs/penn-mobile-ios" class="fa-brands fa-github" target="_blank"
           rel="noopener noreferrer"></a>
         <a id="icon" href="https://apps.apple.com/us/app/penn-mobile/id944829399" class="fa-brands fa-app-store-ios"
           target="_blank" rel="noopener noreferrer"></a>
-
       </div>
     </div>
   </div>
 
-  <div id="penn-mobile">
-    <img src="assets/network.PNG" alt="Graph of faces of professors" width="400">
-    <div class="card">
-      <h3>ProfessorGraph</h3>
-      <h3 class="subtitle">May 2022</h3>
-      <p>Final project for NETS 150, Market and Social Systems on the Internet. Scrapes the Penn course catalog to get a
+  <div id="prof-graph" class="project-content">
+    <img src="assets/network.PNG" alt="Graph Network" width="100%">
+    <div class="project-text">
+      <h2 class="project-title">ProfessorGraph</h2>
+      <div class="subtitle-row"><i class="inline-icon calendar"></i>
+        <p class="subtitle">May 2022</p>
+      </div>
+      <div class="subtitle-row"><i class="inline-icon brackets"></i>
+        <p class="subtitle">React, Express, MongoDB</p>
+      </div>
+      <p>Final project for NETS 150, Market and Social Systems on the Internet. Scrapes the Penn course catalog to get
+        a
         list of courses, and creates a graph where every professor is a node and there is an edge between
-        two professors if they have taught the same class. Analyzes various network statistics about this graph, such as
+        two professors if they have taught the same class. Analyzes various network statistics about this graph, such
+        as
         the average clustering coefficient, the professor with the highest betweenness centrality, and the size of the
         largest connected component.</p>
       <div class="project-links">
-        <h3 class="subtitle">React, Express, MongoDB</h3>
         <a id="icon" href="https://github.com/aantenberg/ProfessorGraph" class="fa-brands fa-github" target="_blank"
           rel="noopener noreferrer"></a>
       </div>
-
     </div>
   </div>
 
-  <div id="ml">
-    <img src="assets/soccer.png" alt="Screenshot of Soccer Match Classifier Medium Article" width="700">
-    <div class="card">
-      <h3>Soccer Match Classifier</h3>
-      <h3 class="subtitle">December 2022</h3>
+  <div id="ml" class="project-content">
+    <img src="assets/soccer.png" alt="Screenshot of Soccer Match Classifier Medium Article" width="100%">
+    <div class="project-text">
+      <p class="project-title">Soccer Match Classifier</p>
+      <div class="subtitle-row"><i class="inline-icon calendar"></i>
+        <p class="subtitle">December 2022</p>
+      </div>
+      <div class="subtitle-row"><i class="inline-icon brackets"></i>
+        <p class="subtitle">Python, Pandas, Sci-Kit Learn</p>
+      </div>
       <p>Machine learning model trained on data from over 26,000 soccer matches, designed to classify whether a soccer
-        match would likely result in a win, loss, or draw for the home team. Cleaned dataset, performed exploratory data
+        match would likely result in a win, loss, or draw for the home team. Cleaned dataset, performed exploratory
+        data
         analysis, and trained lasso and ridge linear regression models in addition to a logistic regression classifier
         model, achieving classification accuracy of around 53%.</p>
-      <h3 class="subtitle">Python, Pandas, Sci-Kit Learn</h3>
-      <a id="icon"
-        href="https://medium.com/@sonalisingh5/predicting-the-outcomes-of-european-football-matches-with-ml-e33a5b8679b3"
-        class="fa-brands fa-medium" target="_blank" rel="noopener noreferrer"></a>
+      <div class="project-links">
+        <a id="icon"
+          href="https://medium.com/@sonalisingh5/predicting-the-outcomes-of-european-football-matches-with-ml-e33a5b8679b3"
+          class="fa-brands fa-medium" target="_blank" rel="noopener noreferrer"></a>
+      </div>
     </div>
   </div>
 
-  <div id="almost">
-    <img src="assets/almost.png" alt="Almost! Web App screenshot" width="700">
-    <div class="card">
-      <h3>Almost! App</h3>
-      <h3 class="subtitle">March 2022</h3>
-      <p>Web app that allows users to view their weekly schedule and visualize how far through their current event they
-        are. Also allows users to share their weekly schedule with friends through a custom share link. Created as final
-        project for CIS 197, Penn's Javascript/React development course, and hosted on Heroku.</p>
-      <h3 class="subtitle">Javascript, React, Express, MongoDB</h3>
-      <a id="icon" href="https://github.com/aantenberg/197FinalProj" class="fa-brands fa-github" target="_blank"
-        rel="noopener noreferrer"></a>
+  <div id="almost" class="project-content">
+    <img src="assets/almost.png" alt="Almost! Web App screenshot" width="100%">
+    <div class="project-text">
+      <p class="project-title">Almost! App</p>
+      <div class="subtitle-row"><i class="inline-icon calendar"></i>
+        <p class="subtitle">March 2022</p>
+      </div>
+      <div class="subtitle-row"><i class="inline-icon brackets"></i>
+        <p class="subtitle">Javascript, React, Express, MongoDB</p>
+      </div>
+      <p>Web app that allows users to view their weekly schedule and visualize how far through their current event
+        they
+        are. Also allows users to share their weekly schedule with friends through a custom share link. Created as
+        final
+        project for CIS 197, Penn's Javascript/React development course, and hosted on Heroku</p>
+      <div class="project-links">
+        <a id="icon" href="https://github.com/aantenberg/197FinalProj" class="fa-brands fa-github" target="_blank"
+          rel="noopener noreferrer"></a>
+      </div>
     </div>
   </div>
 
-  <div id="minigolf">
-    <img src="assets/minigolf.png" alt="Screenshot of Mini Golf Game" width="500">
-    <div class="card">
-      <h3>Mini Golf</h3>
-      <h3 class="subtitle">April 2021</h3>
+  <div id="minigolf" class="project-content">
+    <img src="assets/minigolf.png" alt="Screenshot of Mini Golf Game" width="100%">
+    <div class="project-text">
+      <p class="project-title">Mini Golf</p>
+      <div class="subtitle-row"><i class="inline-icon calendar"></i>
+        <p class="subtitle">April 2021</p>
+      </div>
+      <div class="subtitle-row"><i class="inline-icon brackets"></i>
+        <p class="subtitle">Java Swing, Maven</p>
+      </div>
       <p>Mini Golf game created using Java Swing graphics library. Player chooses angle and velocity to launch ball to
         try to get it in the hole in the fewest strokes. Save game and undo options are available. Created as a final
-        project for CIS 120, Introduction to Programming Languages and Techniques. </p>
-      <h3 class="subtitle">Java Swing, Maven</h3>
+        project for CIS 120, Introduction to Programming Languages and Techniques.</p>
     </div>
   </div>
 
