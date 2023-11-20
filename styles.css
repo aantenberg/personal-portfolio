@@ -116,7 +116,7 @@ html {
   display: grid;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 1350px) {
   .project-content {
     grid-template-columns: 1fr !important;
   }
@@ -132,36 +132,13 @@ html {
 }
 
 
-#intro {
-  display: flex;
-  flex-wrap: wrap;
-  margin-inline: auto;
-  width: 70%;
-  align-content: center;
-  justify-content: center
-}
-
-
-#intro img {
-  flex: 1;
-  min-width: 300px;
-  min-height: 300px;
-  max-width: 300px;
-  max-height: 300px;
-  border-radius: 50%;
+#andrew {
+  border-radius: 5%;
   overflow: hidden;
-  border-width: 4px;
-  border-color: white;
-  border-style: solid;
-  box-shadow: rgb(0 0 0 / 30%) 0px 1px 18px;
-  margin: 20px
-}
-
-#intro div {
-  flex: 2;
-  min-width: 40%;
-  height: 100%;
-  align-self: center;
+  margin: 30px;
+  width: 80%;
+  min-width: 300px;
+  max-width: 500px;
 }
 
 .card {
@@ -173,12 +150,12 @@ html {
   box-shadow: rgb(0 0 0 / 30%) 0px 1px 18px;
 }
 
-#intro a {
+a {
   color: white;
 }
 
 #intro a:hover {
-  background-color: rgba(150, 150, 255, 0.696);
+  background-color: rgba(0, 0, 255, 0.3);
   transition: 0.5s;
 }
 
@@ -234,12 +211,15 @@ body {
   margin: 1rem auto;
   border-radius: 1rem;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.hoverable {
   transition: 1s;
   animation-name: fadeIn;
   animation-duration: 3s;
   animation-timing-function: ease-in;
-  display: grid;
-  grid-template-columns: 1fr;
 }
 
 .renderdescription {
@@ -318,6 +298,7 @@ h3 {
 
 .subtitle-row {
   display: inline-block;
+  min-width: 50ch;
 }
 
 .subtitle {
@@ -355,4 +336,11 @@ h3 {
 
 .brackets {
   background-image: url('./assets/icons/brackets.svg');
+}
+
+.cap {
+  width: 26px;
+  height: 26px;
+  margin: -4px;
+  background-image: url('./assets/icons/cap.svg')
 }
