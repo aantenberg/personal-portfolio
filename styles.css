@@ -139,14 +139,20 @@ footer {
   float: left !important;
 }
 
+#home-info {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 #andrew {
-  border-radius: 5%;
-  overflow: hidden;
-  margin: 30px;
-  width: 80%;
+  border-radius: 15px;
   min-width: 300px;
-  max-width: 500px;
+  max-width: 1000px;
+  height: auto;
 }
 
 .card {
@@ -328,6 +334,11 @@ h3 {
   display: flex;
   flex-direction: column;
   width: 40%;
+}
+
+.detail-text {
+  margin: 30px;
+  width: 100%;
 }
 
 .inline-icon {
