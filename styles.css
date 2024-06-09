@@ -110,7 +110,8 @@ footer {
 #mini-minecraft,
 #minigolf,
 #ml,
-#almost {
+#almost,
+#ascii {
   gap: 90px;
   flex-direction: row;
   display: flex;
