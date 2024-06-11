@@ -10,7 +10,7 @@
   <link rel="icon" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/bd90cd7bef.js" crossorigin="anonymous"></script>
 
 
@@ -19,32 +19,45 @@
 
 
 <body>
-  <div class="header">
-    <a id="name" href="index.html">Andrew Antenberg</a>
+  <div class="header black-background">
+    <!-- <a id="name" href="index.html">Andrew Antenberg</a> -->
     <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" id="button">Resume</a>
     <a href="experience.html">Experience</a>
     <a href="design.html">3D Renders</a>
     <a href="projects.html">Projects</a>
   </div>
-  <div>
-    <h3 id="section-title">Hey there!</h3>
-    <div id="home-info">
-      <img src="assets/aanten.jpg" id="andrew" alt="Andrew Antenberg" width="100%">
-      <div class="detail-text">
-        <h2 class="project-title">I'm Andrew.</h2>
-        <div class="subtitle-row"><i class="inline-icon cap"></i>
-          <p class="subtitle">University of Pennsylvania</p>
-        </div>
-        <div class="subtitle-row"><i class="inline-icon brackets"></i>
-          <p class="subtitle">Bachelors in Computer Science, Minor in Design</p>
-        </div>
-        <p>Hi there! My name's Andrew Antenberg. I'm a student studying Computer Science with a minor in design at the
-          University of Pennsylvania. I have <a href="experience.html#alexa">backend</a>, <a
-            href="projects.html#penn-mobile">mobile</a>, and <a href="projects.html#almost">frontend</a> development
-          experience, along with a passion
-          for teaching and an interest in <a href="design.html">3D modeling/rendering</a>.</p>
-
+  <div id="hero">
+    <h1>Andrew Antenberg</h1>
+    <p class="hero-subtitle">Software Engineer. Lover of teaching, learning, and buffalo wings.</p>
+    <div id="details">
+      <div class="subtitle-row">
+        <i class="inline-icon cap-dark"></i>
+        <p class="detail-text">University of Pennsylvania</p>
       </div>
+      <div class="subtitle-row">
+        <i class="inline-icon brackets-dark"></i>
+        <p class="detail-text">Bachelors in Computer Science, Minor in Design</p>
+      </div>
+    </div>
+    <div class="hero-tags">
+      <a class="no-decoration" href="experience.html#meta-job">
+        <div class="hero-tag" id="meta" href="experience.html">
+          <img src="assets/meta-small.png" alt="Meta Logo" width="28px">
+          <p class="tag-label">Meta</p>
+        </div>
+      </a>
+      <a class="no-decoration" href="experience.html#penn-job">
+        <div class="hero-tag" id="penn">
+          <img src="assets/penn-logo-simple.png" alt="Penn Logo" width="26px">
+          <p class="tag-label">UPenn</p>
+        </div>
+      </a>
+      <a class="no-decoration" href="experience.html#alexa">
+        <div class="hero-tag" id="amazon">
+          <img src="assets/amazon-smile.png" alt="Amazon Logo" width="28px">
+          <p class="tag-label">Amazon</p>
+        </div>
+      </a>
     </div>
   </div>
 
