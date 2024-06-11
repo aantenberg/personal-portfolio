@@ -291,9 +291,9 @@ body {
 }
 
 h1 {
-  font-size: 48px;
-  line-height: 20%;
-
+  font-size: 92px;
+  font-weight: 800;
+  margin: -24px 0px
 }
 
 h2 {
@@ -373,4 +373,49 @@ h3 {
   height: 100vh;
   overflow: scroll;
   scroll-snap-type: y mandatory;
+}
+
+#meta {
+  color: #0082FB;
+}
+
+#penn {
+  color: #FFFFFF;
+}
+
+#amazon {
+  color: #FD9800;
+}
+
+.hero-tag {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tag-label {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 0%;
+  padding: 0px 12px;
+}
+
+.hero-subtitle {
+  color: #D5D5D5;
+  font-size: 20px;
+  font-weight: 200;
+  width: 65%
+}
+
+.hero-tags {
+  margin: 2rem 0rem;
+}
+
+#hero {
+  width: 85%;
+  margin: 20rem auto
+}
+
+.no-decoration {
+  text-decoration: none;
 }
