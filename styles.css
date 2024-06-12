@@ -16,8 +16,10 @@ p {
 }
 
 #header-title {
+  visibility: visible;
   flex: 10;
   text-align: left;
+  font-weight: 400;
 }
 
 .header {
@@ -34,8 +36,16 @@ p {
   display: none;
 }
 
+#home-link {
+  visibility: hidden;
+}
+
 
 @media screen and (max-width: 600px) {
+  #header-title {
+    visibility: hidden;
+  }
+
   .navbar a {
     visibility: hidden;
   }
@@ -61,7 +71,7 @@ p {
   .navbar.responsive a {
     display: block;
     text-align: left;
-    visibility: visible;
+    visibility: visible !important;
   }
 }
 
@@ -189,11 +199,6 @@ p {
 .project {
   margin: 1rem auto;
   width: 70%;
-}
-
-#name {
-  float: left !important;
-  font-weight: 400;
 }
 
 #home-info {
