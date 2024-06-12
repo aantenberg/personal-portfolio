@@ -118,6 +118,7 @@ p {
   width: 10%;
   height: auto;
   object-fit: cover;
+  align-self: center;
 }
 
 .job-description {
@@ -183,13 +184,9 @@ p {
 
   .job {
     align-items: start;
-    flex-direction: column !important;
+    flex-direction: column;
     width: 90% !important;
     margin: 0 auto 4rem
-  }
-
-  .job-description {
-    width: 100% !important;
   }
 
   #projects-body {
