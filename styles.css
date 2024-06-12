@@ -62,12 +62,8 @@ p {
 
 .job img {
   flex: 1;
-  min-width: 80px;
+  min-width: 100px;
   max-width: 10%;
-  /* max-height: 100px; */
-  /* width: 200px; */
-  /* height: 200px; */
-  /* max-width: 200px; */
 }
 
 .job-description {
@@ -116,12 +112,22 @@ p {
   gap: 90px;
   flex-direction: row;
   display: flex;
-  animation: fadeIn 1s ease-out
+  animation: fadeIn 1s ease-out;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20rem;
 }
 
 @media (max-width: 1350px) {
+  #section-title {
+    width: 90% !important;
+  }
+
   .project-content {
-    grid-template-columns: 1fr !important;
+    flex-direction: column;
+  }
+  .project-text {
+    width: 90% !important;
   }
 }
 
@@ -333,13 +339,6 @@ h3 {
   color: #ABABAB;
 }
 
-.project-content {
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 20rem;
-  grid-template-columns: 2fr 4fr;
-}
-
 .project-text {
   display: flex;
   flex-direction: column;
@@ -385,7 +384,7 @@ h3 {
 }
 
 .no-overflow {
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 #projects-body {
@@ -419,7 +418,7 @@ h3 {
     opacity: 100;
     transform: translateY(0px)
   }
-  
+
 }
 
 .hero-tag {
