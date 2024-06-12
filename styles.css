@@ -11,10 +11,6 @@ html {
   scroll-padding-top: 100px;
 }
 
-footer {
-  scroll-snap-align: start;
-}
-
 p {
   font-weight: 200;
 }
@@ -194,6 +190,7 @@ footer {
   padding-bottom: 10rem;
   display: flex;
   vertical-align: middle;
+  scroll-snap-align: start;
 }
 
 body {
