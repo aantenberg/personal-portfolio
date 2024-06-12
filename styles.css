@@ -118,7 +118,7 @@ p {
   width: 10%;
   height: auto;
   object-fit: cover;
-  align-self: center;
+  align-self: flex-start;
 }
 
 .job-description {
