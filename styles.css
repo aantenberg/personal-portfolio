@@ -186,7 +186,11 @@ p {
     align-items: start;
     flex-direction: column;
     width: 90% !important;
-    margin: 0 auto 4rem
+    margin: 0 auto 4rem;
+  }
+
+  #home-nav {
+    width: 90% !important;
   }
 
   #projects-body {
@@ -533,7 +537,7 @@ h3 {
 }
 
 #home-nav {
-  width: max(70%, 500px);
+  width: 70%;
   margin: auto;
 }
 
