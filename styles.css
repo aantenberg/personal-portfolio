@@ -101,8 +101,9 @@ p {
 .job {
   margin: auto;
   padding: 1rem;
-  width: max(30ch, 60%);
+  width: 60%;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   gap: 50px;
@@ -118,8 +119,8 @@ p {
 }
 
 .job-description {
-  flex: 10;
-  min-width: 70%
+  flex: 1;
+  min-width: 70%;
 }
 
 .job-title h3 {
@@ -169,13 +170,24 @@ p {
   margin: 0 auto 20rem;
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   #section-title {
     width: 90% !important;
   }
 
   .rendercontainer {
     width: 90% !important;
+  }
+
+  .job {
+    align-items: start;
+    flex-direction: column !important;
+    width: 90% !important;
+    margin: 0 auto 4rem
+  }
+
+  .job-description {
+    width: 100% !important;
   }
 
   #projects-body {
