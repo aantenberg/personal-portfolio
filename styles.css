@@ -48,7 +48,8 @@ p {
 }
 
 .job {
-  margin: 1rem auto;
+  margin: auto;
+  padding: 1rem;
   width: max(30ch, 60%);
   display: flex;
   flex-wrap: wrap;
