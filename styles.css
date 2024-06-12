@@ -117,6 +117,7 @@ p {
   min-width: 100px;
   max-width: 10%;
   height: auto;
+  object-fit: cover;
 }
 
 .job-description {
@@ -189,10 +190,6 @@ p {
 
   .job-description {
     width: 100% !important;
-  }
-
-  .job img {
-    height: auto !important;
   }
 
   #projects-body {
