@@ -65,8 +65,8 @@ p {
 
 .job img {
   flex: 1;
-  min-width: 100px;
-  max-width: 40%;
+  min-width: 80px;
+  max-width: 10%;
   /* max-height: 100px; */
   /* width: 200px; */
   /* height: 200px; */
@@ -74,7 +74,7 @@ p {
 }
 
 .job-description {
-  flex: 6;
+  flex: 10;
   min-width: 70%
 }
 
@@ -287,6 +287,7 @@ body {
 
 #button {
   background: white;
+  font-weight: 400;
   border-radius: 5%;
   color: var(--accent-color) !important;
   margin-left: 10px;
@@ -329,7 +330,7 @@ h3 {
 .subtitle {
   display: inline-block;
   margin: 0;
-  font-size: 17pt;
+  font-size: 14pt;
   font-weight: 200;
   color: #ABABAB;
 }
