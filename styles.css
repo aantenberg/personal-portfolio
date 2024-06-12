@@ -115,13 +115,13 @@ p {
 .job img {
   flex: 1;
   min-width: 100px;
-  max-width: 10%;
+  width: 10%;
   height: auto;
   object-fit: cover;
 }
 
 .job-description {
-  flex: 1;
+  flex: 10;
   min-width: 70%;
 }
 
