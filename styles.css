@@ -191,6 +191,10 @@ p {
     width: 100% !important;
   }
 
+  .job img {
+    height: auto !important;
+  }
+
   #projects-body {
     scroll-snap-type: none !important;
   }
