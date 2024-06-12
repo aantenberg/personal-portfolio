@@ -169,8 +169,12 @@ p {
   margin: 0 auto 20rem;
 }
 
-@media (max-width: 1350px) {
+@media (max-width: 600px) {
   #section-title {
+    width: 90% !important;
+  }
+
+  .rendercontainer {
     width: 90% !important;
   }
 
