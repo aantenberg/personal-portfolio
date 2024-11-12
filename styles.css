@@ -100,13 +100,12 @@ p {
 
 .job {
   margin: auto;
-  padding: 1rem;
+  padding: 1rem 0;
   width: 60%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  gap: 50px;
   justify-content: center;
   animation: fadeIn 1s ease-out
 }
@@ -119,6 +118,7 @@ p {
   height: auto;
   object-fit: cover;
   align-self: flex-start;
+  padding: 0 1rem;
 }
 
 .job-description {
@@ -201,6 +201,10 @@ p {
     flex-direction: column;
     width: 90% !important;
     margin: 0 auto 4rem;
+  }
+
+  .job img {
+    padding: 1rem 0 !important;
   }
 
   #home-nav {
@@ -371,6 +375,10 @@ body {
   border-width: 2px;
   border-bottom-style: solid;
   border-color: rgba(255, 255, 255, 0.7);
+}
+#artwork-name {
+  width: 60%;
+  margin: auto;
 }
 
 #button {
