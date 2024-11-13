@@ -329,6 +329,14 @@ body {
   grid-template-columns: 1fr;
 }
 
+.small {
+  width: 20%;
+}
+
+.showoverflow {
+  overflow: visible;
+}
+
 .hoverable {
   transition: 1s;
   animation-name: fadeIn;
