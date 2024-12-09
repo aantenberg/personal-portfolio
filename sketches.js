@@ -125,7 +125,7 @@ var molnarSketch = function (p) {
     p.fill(0);
     p.strokeWeight(2);
     p.frameRate(30);
-    const colors = [
+    p.colorScheme = [
       p.color(255, 0, 0),
       p.color(255, 255, 0),
       p.color(255, 255, 255),
@@ -133,22 +133,33 @@ var molnarSketch = function (p) {
       p.color(255, 0, 255),
       p.color(0, 255, 255),
     ];
-    const colorIndex = p.int(p.random() * colors.length);
-    p.stroke(colors[colorIndex])
+    p.currColor = p.random(p.colorScheme);
+    p.nextColor = p.random(p.colorScheme);
+    p.hasUpdatedColor = true;
+    p.colorLerpRatio = 0;
+    p.stroke(p.currColor);
     canvas.parent('molnarsketch');
   }
   const numLayers = 10;
-
-  let erraticFactor = 5;
+  let erraticFactor = 0;
   p.draw = function () {
+    p.stroke(p.lerpColor(p.currColor, p.nextColor, p.colorLerpRatio));
     const mouseInBounds =
       p.mouseX > 0 && p.mouseX < p.width && p.mouseY > 0 && p.mouseY < p.height;
     updateErraticFactor(mouseInBounds);
-    const shouldRedraw = erraticFactor > 0 || mouseInBounds;
-    if (shouldRedraw) {
-      p.background(0);
-      erraticRect(0, 0, p.width, p.height, erraticFactor, numLayers);
+    if (erraticFactor > 0) {
+      p.hasUpdatedColor = false;
+    } else if (!p.hasUpdatedColor) {
+      p.colorLerpRatio = Math.min(p.colorLerpRatio + 0.05, 1);
+      if (p.colorLerpRatio >= 1) {
+        p.colorLerpRatio = 0;
+        p.currColor = p.nextColor;
+        p.nextColor = p.random(p.colorScheme);
+        p.hasUpdatedColor = true;
+      }
     }
+    p.background(0);
+      erraticRect(0, 0, p.width, p.height, erraticFactor, numLayers);
   }
 
   function updateErraticFactor(mouseInBounds) {
@@ -266,11 +277,11 @@ var fallingLeavesSketch = function (p) {
   p.setup = function () {
     const parentDiv = document.getElementById("falling-leaves-sketch");
     const canvas = p.createCanvas(parentDiv.clientWidth, 400);
-    addLeaves();
+    p.addLeaves();
     canvas.parent('falling-leaves-sketch');
   }
 
-  function addLeaves() {
+  p.addLeaves = function() {
     const colorScheme = [
       "#FBBF07",
       "#F49004",
@@ -299,16 +310,17 @@ var fallingLeavesSketch = function (p) {
   }
 
 
-  isMouseInBounds = function() {
+  p.isMouseInBounds = function() {
     return p.mouseY > 0 && p.mouseX > 0 && p.mouseX < p.width && p.mouseY < p.height;
   }
+
   let fadeInFrame = 0;
   p.draw = function() {
     p.background("#A3DBFC");
     p.fill("rgb(15,104,15)");
     p.noStroke();
     p.rect(0, GROUNDLEVEL, p.width, p.height);
-    const mouseInBounds = isMouseInBounds();
+    const mouseInBounds = p.isMouseInBounds();
     if (mouseInBounds) {
       fadeInFrame = Math.min(fadeInFrame + 1, 50);
     } else {
@@ -327,7 +339,7 @@ var fallingLeavesSketch = function (p) {
     }
     leaves = leaves.filter((leaf) => leaf.deadTime < 2 * DEADFRAMES);
     if (mouseInBounds && (p.frameCount % 60) * 9 === 0) {
-      addLeaves();
+      p.addLeaves();
     }
   }
 
