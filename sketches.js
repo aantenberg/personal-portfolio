@@ -195,6 +195,145 @@ var molnarSketch = function (p) {
   }
 }
 
+var fallingLeavesSketch = function (p) {
+  const DEADFRAMES = 100;
+  const GROUNDLEVEL = 380;
+  class Leaf {
+    constructor(x, y, l, initTheta, phaseOffset, c) {
+      this.x = x;
+      this.y = y;
+      this.l = l;
+      this.frame = 0;
+      this.initTheta = initTheta;
+      this.phaseOffset = phaseOffset;
+      this.theta = initTheta;
+      this.ay = 1;
+      this.vy = 0;
+      this.c = c;
+      this.deadTime = 0;
+    }
+
+    draw() {
+      p.noFill();
+      const c = p.color(this.c);
+      c.setAlpha(
+        (255 * (DEADFRAMES - Math.max(0, this.deadTime - DEADFRAMES / 2))) / DEADFRAMES
+      );
+      p.stroke(c);
+      const dy = Math.cos(this.theta);
+      const dx = Math.sin(this.theta);
+      const endpointX = this.x + this.l * dx;
+      const endpointY = this.y + this.l * dy;
+      const angleStart = Math.PI / 2.5;
+      const angleEnd = Math.PI - angleStart;
+      p.arc(
+        endpointX,
+        endpointY - 30,
+        60,
+        60,
+        angleStart - this.theta,
+        angleEnd - this.theta
+      );
+    }
+
+    update() {
+      if (this.isDead()) {
+        this.deadTime++;
+        return;
+      }
+      const g = 9.8;
+      const omega0 = Math.sqrt(g / this.l);
+      this.frame += 0.15;
+      const beta = 0.02;
+      const omega_d = Math.sqrt(Math.pow(omega0, 2) - Math.pow(beta, 2));
+      this.theta =
+        this.initTheta *
+        Math.exp(-beta * this.frame) *
+        Math.cos(omega_d * this.frame + this.phaseOffset);
+      const k = 0.3;
+      const m = 0.1;
+      const v_t = (m * g) / k; // Terminal velocity
+      this.vy = v_t * (1 - Math.exp(-k * this.frame));
+      this.y += this.vy;
+    }
+
+    isDead() {
+      return this.y + this.l * Math.cos(this.theta) > GROUNDLEVEL;
+    }
+  }
+
+  let leaves = [];
+  p.setup = function () {
+    const parentDiv = document.getElementById("falling-leaves-sketch");
+    const canvas = p.createCanvas(parentDiv.clientWidth, 400);
+    addLeaves();
+    canvas.parent('falling-leaves-sketch');
+  }
+
+  function addLeaves() {
+    const colorScheme = [
+      "#FBBF07",
+      "#F49004",
+      "#E35704",
+      "#A92A04",
+      "#F8B005",
+    ];
+
+    for (let i = 0; i < 20; i++) {
+      const pendulumLength = 80 + p.random() * 20;
+      leaves.push(
+        new Leaf(
+          50 + p.random() * (p.width - 100), // x
+          0 - pendulumLength - p.random() * 100, // y
+          pendulumLength, // pendulumLength
+          0.5 + p.random() * 1.5, // initTheta
+          p.random() * 2 * Math.PI, // phaseOffset
+          p.random(colorScheme) // color
+        )
+      );
+    }
+  }
+
+  p.mousePressed = function () {
+    p.addLeaves();
+  }
+
+
+  isMouseInBounds = function() {
+    return p.mouseY > 0 && p.mouseX > 0 && p.mouseX < p.width && p.mouseY < p.height;
+  }
+  let fadeInFrame = 0;
+  p.draw = function() {
+    p.background("#A3DBFC");
+    p.fill("rgb(15,104,15)");
+    p.noStroke();
+    p.rect(0, GROUNDLEVEL, p.width, p.height);
+    const mouseInBounds = isMouseInBounds();
+    if (mouseInBounds) {
+      fadeInFrame = Math.min(fadeInFrame + 1, 50);
+    } else {
+      fadeInFrame = Math.max(fadeInFrame - 1, 0);
+    }
+    p.drawingContext.filter = "blur(20px)";
+    p.noFill();
+    p.strokeWeight(40);
+    p.stroke(240, 230, 180, Math.min(fadeInFrame * 5, 255) / 2);
+    p.rect(0, 0, p.width, p.height);
+    p.drawingContext.filter = "none";
+    p.strokeWeight(8);
+    for (const leaf of leaves) {
+      leaf.update();
+      leaf.draw();
+    }
+    leaves = leaves.filter((leaf) => leaf.deadTime < 2 * DEADFRAMES);
+    if (mouseInBounds && (p.frameCount % 60) * 9 === 0) {
+      addLeaves();
+    }
+  }
+
+}
+
 var sketch1 = new p5(watchingYouSketch);
 var sketch2 = new p5(fairyDustSketch)
 var sketch3 = new p5(molnarSketch)
+var sketch4 = new p5(fallingLeavesSketch);
