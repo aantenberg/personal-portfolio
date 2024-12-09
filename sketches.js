@@ -107,7 +107,7 @@ var fairyDustSketch = function (p) {
   }
 
   p.draw = function () {
-    p.background(50);
+    p.background(10);
     if (0 < p.mouseX && p.mouseX < p.width && 0 < p.mouseY && p.mouseY < p.height) {
       spawnParticles(p.createVector(p.mouseX, p.mouseY), 25);
     }
