@@ -84,9 +84,6 @@ var fairyDustSketch = function (p) {
       return this.remainingFrames > 0;
     }
 
-    // inFrame() {
-    //   return this.pos.x <= CANVAS_WIDTH && this.pos.y <= CANVAS_HEIGHT;
-    // }
   }
   var particles = [];
   p.setup = function () {
@@ -207,8 +204,9 @@ var molnarSketch = function (p) {
 }
 
 var fallingLeavesSketch = function (p) {
-  const DEADFRAMES = 100;
+  const DEADFRAMES = 70;
   const GROUNDLEVEL = 380;
+  const RANDOM_GROUND_OFFSET = Math.random() * 20;
   class Leaf {
     constructor(x, y, l, initTheta, phaseOffset, c) {
       this.x = x;
@@ -225,26 +223,25 @@ var fallingLeavesSketch = function (p) {
     }
 
     draw() {
-      p.noFill();
       const c = p.color(this.c);
       c.setAlpha(
         (255 * (DEADFRAMES - Math.max(0, this.deadTime - DEADFRAMES / 2))) / DEADFRAMES
       );
-      p.stroke(c);
+      p.fill(c);
+      p.noStroke();
       const dy = Math.cos(this.theta);
       const dx = Math.sin(this.theta);
       const endpointX = this.x + this.l * dx;
       const endpointY = this.y + this.l * dy;
-      const angleStart = Math.PI / 2.5;
-      const angleEnd = Math.PI - angleStart;
-      p.arc(
-        endpointX,
-        endpointY - 30,
-        60,
-        60,
-        angleStart - this.theta,
-        angleEnd - this.theta
-      );
+      p.push();
+      p.translate(endpointX, endpointY);
+      p.rotate(90 - this.theta);
+      p.beginShape();
+      p.vertex(0, 0);
+      p.bezierVertex(10, 0, 10 + (this.theta * 10), 4, 0, 20);
+      p.bezierVertex(10, 20, 10 - (this.theta * 10), 6, 0, 0);
+      p.endShape();
+      p.pop()
     }
 
     update() {
@@ -283,11 +280,12 @@ var fallingLeavesSketch = function (p) {
 
   p.addLeaves = function() {
     const colorScheme = [
-      "#FBBF07",
-      "#F49004",
-      "#E35704",
-      "#A92A04",
-      "#F8B005",
+    '#D99A16',
+    '#D8661C',
+    '#A9471D',
+    '#F49004',
+    '#E35704',
+    '#A92A04',
     ];
 
     for (let i = 0; i < 20; i++) {
@@ -316,10 +314,25 @@ var fallingLeavesSketch = function (p) {
 
   let fadeInFrame = 0;
   p.draw = function() {
-    p.background("#A3DBFC");
-    p.fill("rgb(15,104,15)");
     p.noStroke();
+    p.background("#9FCBE0");
+    let groundColor = p.color(59, 90, 7);
+    p.fill(groundColor);
     p.rect(0, GROUNDLEVEL, p.width, p.height);
+    groundColor.setAlpha(150);
+    p.fill(groundColor);
+    p.beginShape();
+    p.vertex(0, GROUNDLEVEL);
+    p.vertex(p.width, GROUNDLEVEL - RANDOM_GROUND_OFFSET);
+    p.vertex(p.width, p.height);
+    p.vertex(0, p.height);
+    p.endShape();
+    p.beginShape();
+    p.vertex(0, GROUNDLEVEL - RANDOM_GROUND_OFFSET / 2);
+    p.vertex(p.width, GROUNDLEVEL);
+    p.vertex(p.width, p.height);
+    p.vertex(0, p.height);
+    p.endShape();
     const mouseInBounds = p.isMouseInBounds();
     if (mouseInBounds) {
       fadeInFrame = Math.min(fadeInFrame + 1, 50);
@@ -328,17 +341,17 @@ var fallingLeavesSketch = function (p) {
     }
     p.drawingContext.filter = "blur(20px)";
     p.noFill();
-    p.strokeWeight(40);
+    p.strokeWeight(5);
     p.stroke(240, 230, 180, Math.min(fadeInFrame * 5, 255) / 2);
     p.rect(0, 0, p.width, p.height);
     p.drawingContext.filter = "none";
-    p.strokeWeight(8);
+    p.strokeWeight(4);
     for (const leaf of leaves) {
       leaf.update();
       leaf.draw();
     }
     leaves = leaves.filter((leaf) => leaf.deadTime < 2 * DEADFRAMES);
-    if (mouseInBounds && (p.frameCount % 60) * 9 === 0) {
+    if (mouseInBounds && (p.frameCount % 60) * 15 === 0) {
       p.addLeaves();
     }
   }
